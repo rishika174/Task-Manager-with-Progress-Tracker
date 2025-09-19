@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Task Manager — Progress Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="app">
+        <header>
+            <div>
+                <h1>Task Manager — Progress Tracker</h1>
+                <p>Lightweight, local-storage backed to-do with edit, complete & progress visualization</p>
+            </div>
+            <button id="themeToggle" class="btn btn-ghost small">🌙 Dark Mode</button>
+        </header>
+
+        <section class="card">
+            <div class="controls">
+                <input id="taskInput" class="input" placeholder="Add a task — e.g. Finish study plan" />
+                <input id="dueInput" type="date" class="small input" />
+                <button id="addBtn" class="btn btn-primary small">Add Task</button>
+                <input id="search" class="input small" placeholder="Search tasks" style="max-width:220px" />
+                <select id="filter" class="small select">
+                    <option value="all">All</option>
+                    <option value="active">Active</option>
+                    <option value="completed">Completed</option>
+                    <option value="due-soon">Due soon</option>
+                </select>
+            </div>
+
+            <div class="layout">
+                <div>
+                    <div id="tasks" class="tasks"></div>
+                    <div id="emptyState" class="empty" style="display:none">No tasks yet — add your first task above ✨
+                    </div>
+                </div>
+
+                <aside class="panel">
+                    <div class="progress-wrap card">
+                        <div style="display:flex;justify-content:space-between;align-items:center">
+                            <strong id="progressLabel">0% complete</strong>
+                            <small class="due" id="nextDue">No upcoming due date</small>
+                        </div>
+                        <div style="height:8px;margin-top:8px" class="progress-bar"><i id="progressFill"></i></div>
+                        <div style="margin-top:10px" class="stats">
+                            <div>
+                                <div class="pill" id="totalCount">0 total</div>
+                            </div>
+                            <div>
+                                <div class="pill" id="activeCount">0 active</div>
+                            </div>
+                            <div>
+                                <div class="pill" id="doneCount">0 done</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 style="margin:0 0 8px 0">Quick actions</h3>
+                        <div style="display:flex;gap:8px;flex-wrap:wrap">
+                            <button id="clearCompleted" class="btn btn-ghost small">Clear completed</button>
+                            <button id="clearAll" class="btn btn-ghost small">Clear all</button>
+                            <button id="sortDue" class="btn small">Sort by due</button>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <footer>Local-only. Your tasks are saved in your browser's local storage.</footer>
+        </section>
+    </main>
+
+    <script src="app.js">
+
+    </script>
+</body>
+
+</html>
